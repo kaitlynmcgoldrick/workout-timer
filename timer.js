@@ -1,11 +1,11 @@
-const fullTimeInMinutes = 12; //seconds
-const someIntervalInSeconds = 3; //seconds
+const fullTimeInMinutes = 1; //minutes
+const someIntervalInSeconds = 10; //seconds
 
 var sound = new Audio("Beep.mp3");
 
 const calculations = (sec, min) => {
-  const minToSec = min;
-  // minToSec = min*60;
+  // const minToSec = min;
+  const minToSec = min*60;
   calcs = {
     intervals: Math.floor(minToSec/sec),
     remainder: minToSec%sec,
@@ -27,10 +27,11 @@ const startTimer = (seconds) => {
 };
 
 const repeatTimer = (func, param, times) => {
+  func(param);
   let y = setInterval(() => {
     console.log('Interval: '+ times)
     times--;
-    if (times < 0){
+    if (times <= 0){
       clearInterval(y);
       return;
     }
